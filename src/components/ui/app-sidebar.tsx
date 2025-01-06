@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Sidebar,
   SidebarContent,
@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/sidebar";
 import { useHabitStore } from "@/hooks/stores/useHabitStore";
 import { HABITS } from "@/lib/habits";
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import AddHabit from "@/components/composites/modal/add-habit";
 
 export function AppSidebar() {
   const setSelectedHabit = useHabitStore((state) => state.setSelectedHabit);
@@ -21,7 +21,9 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarHeader />
       <SidebarContent>
-        <SidebarGroup />
+        <SidebarGroup>
+          <AddHabit />
+        </SidebarGroup>
         <SidebarGroup>
           <SidebarGroupLabel>Habits</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -29,7 +31,10 @@ export function AppSidebar() {
               {HABITS.map((habit, i) => (
                 <SidebarMenuItem key={i}>
                   <SidebarMenuButton asChild>
-                    <span className="hover:bg-white/30 cursor-pointer" onClick={() => setSelectedHabit(habit.name)}>
+                    <span
+                      className="hover:bg-white/30 cursor-pointer"
+                      onClick={() => setSelectedHabit(habit.name)}
+                    >
                       {habit.name}
                     </span>
                   </SidebarMenuButton>

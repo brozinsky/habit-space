@@ -3,6 +3,7 @@ import Image from "next/image";
 import backgroundPNG from "./background.png";
 import HabitDetails from "@/components/composites/habit-details";
 import { HABITS } from "@/lib/habits";
+import { Button } from "@/components/ui/button";
 interface IStore {
   count: number;
   increment: () => void;
